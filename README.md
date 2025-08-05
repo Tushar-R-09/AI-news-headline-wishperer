@@ -6,3 +6,8 @@ uv sync
 ```
 python -m ensurepip --upgrade
 ```
+
+### Generate app password
+```
+https://myaccount.google.com/apppasswords
+```
