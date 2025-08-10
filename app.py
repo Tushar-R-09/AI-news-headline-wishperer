@@ -1,6 +1,7 @@
 import streamlit as st
 from email_sender import send_email
-from find_summary import get_summary
+from summary_generator import summarize_text
+from article_scrapper import scrape_article
 from dotenv import load_dotenv
 import os
 
@@ -21,8 +22,10 @@ submit = st.button("Summarize and Send")
 # Main logic
 if submit and url and email:
     with st.spinner("Summarizing article..."):
-        summary = get_summary(url)
-        st.write("### Summary")
+        text = scrape_article(url)
+        st.write("### Article has been scrapped")
+        summary = summarize_text(url)
+        st.write("### Summary generated")
         st.write(summary)
 
         if not summary.startswith("Error"):

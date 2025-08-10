@@ -1,5 +1,13 @@
 from email.mime.text import MIMEText
 import smtplib
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()  # Load variables from .env
+
+sender_email = os.getenv("sender_email")
+sender_password = os.getenv("sender_password")
 
 # Function to send email
 def send_email(summary, recipient_email, sender_email, sender_password):
